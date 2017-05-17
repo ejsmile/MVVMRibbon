@@ -14,9 +14,11 @@ namespace MVVMRibbon.ViewModels
             credentials.Add("Reader", GetHash("reader"));
             credentials.Add("Administrator", GetHash("admin"));
         }
-        internal static bool Check(string login, string pwd) {
-            return object.Equals(credentials[login], GetHash(pwd));
+        internal static bool Check(string login, string pwd)
+        {
+            return login != null && Equals(credentials[login], GetHash(pwd));
         }
+
         static object GetHash(string password) {
             return password;
         }
